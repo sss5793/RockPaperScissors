@@ -28,7 +28,7 @@ export const GameResult = (res) => {
     };
 };
 
-export const SetResult = (res) => {
+export const SetResult = (res,userSet,set) => {
     return async (dispatch) => {
         dispatch({type : PENDING});
         console.log(res);
@@ -38,6 +38,10 @@ export const SetResult = (res) => {
             dispatch({type : SET_LOSE});
         }else{
             dispatch({type : SET_DRAW});
+        }
+
+        if(userSet === set){
+            dispatch({type : RESULT});
         }
     };
 };
@@ -102,6 +106,12 @@ export default handleActions({
         draft.setLose = 0;
     }),
     [RESULT] : (state,actions) => produce(state,draft => {
-        draft.result = actions.payload.res;
+        if(state.setWin > state.setLose){
+            draft.result = 'WIN';
+        }else if(state.setWin === state.setLose){
+            draft.result = 'DRAW';
+        }else {
+            draft.result = 'LOSE';
+        }
     }),
 },initialState);

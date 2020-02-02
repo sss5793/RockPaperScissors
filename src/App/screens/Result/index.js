@@ -48,21 +48,11 @@ export const Result = () => {
             }else {
                 res = 'LOSE';
             }
-            dispatch(SetResult(res));
+            dispatch(SetResult(res,gameState.setRes,gameState.gameValue.set));
 
             // 게임 종료
             if(gameState.setRes === gameState.gameValue.set && !gameResult.loading){
                 setIsGameResult(true);
-                let end = '';
-                // 게임 최종 종료
-                if(gameResult.setWin > gameResult.setLose){
-                    end = 'WIN';
-                }else if(gameResult.setWin === gameResult.setLose){
-                    end = 'DRAW';
-                }else {
-                    end = 'LOSE';
-                }
-                dispatch(End(end));
             }
         }
     };
