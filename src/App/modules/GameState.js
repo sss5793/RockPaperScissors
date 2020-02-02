@@ -91,9 +91,9 @@ export default handleActions({
     }),
     [START] : (state,actions) => produce(state,draft => {
         draft.gameState = 'START';
-        draft.gameValue.time = actions.payload.data.time;
-        draft.gameValue.game = actions.payload.data.game;
-        draft.gameValue.set = actions.payload.data.set;
+        draft.gameValue.time = Number(actions.payload.data.time);
+        draft.gameValue.game = Number(actions.payload.data.game);
+        draft.gameValue.set = Number(actions.payload.data.set);
     }),
     [RESTART] : (state,actions) => produce(state,draft => {
         draft.gameState = 'START';

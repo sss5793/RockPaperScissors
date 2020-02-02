@@ -51,7 +51,7 @@ export const Play = () => {
             if(state < 1){
                 clearInterval(timerAction);
                 if(gameState.gameState !== 'END'){
-                    gameEnd(userValue,computerValue);
+                    dispatch(GameEnd(userValue,computerValue));
                 }
                 // game end
                 return 0;
@@ -62,8 +62,6 @@ export const Play = () => {
     };
 
     const onClick = (name) => {
-        // e.persist();
-        // console.log(name);
         setUserValue(name);
 
         setUserValueState({
@@ -77,11 +75,7 @@ export const Play = () => {
             draft[name] = !value[name];
         }));
 
-        gameEnd(name,computerValue);
-    };
-
-    const gameEnd = (user,computer) => {
-        dispatch(GameEnd(user,computer));
+        dispatch(GameEnd(name,computerValue));
     };
 
     const gameStart = () => {

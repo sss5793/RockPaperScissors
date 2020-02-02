@@ -46,8 +46,6 @@ export const SetResult = (res,userSet,set) => {
     };
 };
 
-export const End = (res) => ({type : RESULT , payload : { res : res}});
-
 export const SetInit = () => ({type : SET_RESET});
 export const GameInit = () => ({type : GAME_RESET});
 

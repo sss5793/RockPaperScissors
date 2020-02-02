@@ -3,7 +3,7 @@ import React, {useState, useEffect}from 'react';
 import { useSelector, useDispatch } from "react-redux";
 
 import { GameReady, GameReStart } from "../../modules/GameState";
-import { SetInit, SetResult, GameInit, End } from "../../modules/GameResult";
+import { SetInit, SetResult, GameInit } from "../../modules/GameResult";
 
 import { Btn } from '../../components';
 
